@@ -1,0 +1,56 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .container {
+    background: #f3f4f6;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    background: white;
+    padding: 6px;
+    margin-top: 5px;
+    border-radius: 4px;
+  }
+</style>
+
+<div class="container">
+    <h1 id="title">Welcome</h1>
+    <div class="input-area">
+        <input id="name" placeholder="Your name" />
+        <button id="greet">Greet</button>
+    </div>
+    <ul id="list"></ul>
+</div>
+
+<script>
+    const greetButton = document.getElementById('greet');
+    const nameInput = document.getElementById('name');
+    const titleElement = document.getElementById('title');
+    const listElement = document.getElementById('list');
+
+    greetButton.addEventListener('click', function() {
+        const enteredName = nameInput.value.trim();
+
+        if (enteredName !== "") {
+            titleElement.textContent = `Hello, ${enteredName}!`;
+            
+            const listItem = document.createElement('li');
+            listItem.textContent = enteredName;
+            listElement.appendChild(listItem);
+
+            nameInput.value = "";
+        }
+    });
+</script>

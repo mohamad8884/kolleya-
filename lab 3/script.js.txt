@@ -1,0 +1,26 @@
+// Select the necessary DOM elements
+const greetButton = document.getElementById('greet');
+const nameInput = document.getElementById('name');
+const titleElement = document.getElementById('title');
+const listElement = document.getElementById('list');
+
+// Add a click event listener to the button
+greetButton.addEventListener('click', function() {
+    const enteredName = nameInput.value.trim();
+
+    // Check if the input is not empty
+    if (enteredName !== "") {
+        // 1. Update the main heading title
+        titleElement.textContent = `Hello, ${enteredName}!`;
+
+        // 2. Create a new list item element and add it to the list
+        const listItem = document.createElement('li');
+        listItem.textContent = enteredName;
+        listElement.appendChild(listItem);
+
+        // 3. Clear out the input field for the next entry
+        nameInput.value = "";
+    } else {
+        alert("Please enter a name first!");
+    }
+});
